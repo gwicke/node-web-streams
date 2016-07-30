@@ -27,7 +27,7 @@ module.exports.toNodeReadable = function(stream) {
  * @return {ReadableStream}, a web ReadableStream.
  */
 module.exports.toWebReadableStream = function(stream) {
-    if (isNodeStream.readable(stream)) {
+    if (isNodeStream(stream) && stream.readable) {
         return conversions.readable.nodeToWeb(stream);
     } else {
         throw new TypeError("Expected a Node streams.Readable.");

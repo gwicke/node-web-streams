@@ -1,0 +1,30 @@
+{
+  "name": "node-web-streams",
+  "version": "0.1.1",
+  "description": "WhatWG web streams and conversion utilities for node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gwicke/node-web-streams.git"
+  },
+  "keywords": [
+    "streamspec",
+    "whatwg",
+    "streams",
+    "node",
+    "convert",
+    "readablestream"
+  ],
+  "author": "Gabriel Wicke <gwicke@wikimedia.org>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/gwicke/node-web-streams/issues"
+  },
+  "dependencies": {
+    "is-stream": "^1.1.0",
+    "web-streams-polyfill": "git://github.com/gwicke/web-streams-polyfill#spec_performance_improvements"
+  }
+}
