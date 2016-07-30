@@ -35,7 +35,7 @@ module.exports.toWebReadableStream = function(stream) {
         return conversions.readable.arrayToWeb(stream);
     } else if (Buffer.isBuffer(stream) || typeof stream === 'string') {
         return conversions.readable.arrayToWeb([stream]);
-    }
+    } else {
         throw new TypeError("Expected a Node streams.Readable, an Array, Buffer or String.");
     }
 };
