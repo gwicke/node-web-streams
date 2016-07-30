@@ -21,15 +21,21 @@ module.exports.toNodeReadable = function(stream) {
 };
 
 /**
- * Convert Node Readable streams to a Web ReadableStream.
+ * Convert Node Readable streams, an Array, Buffer or String to a Web
+ * ReadableStream.
  *
- * @param {Readable} stream, a Node Readable stream.
+ * @param {Readable|Array|Buffer|String} stream, a Node Readable stream,
+ * Array, Buffer or String.
  * @return {ReadableStream}, a web ReadableStream.
  */
 module.exports.toWebReadableStream = function(stream) {
     if (isNodeStream(stream) && stream.readable) {
         return conversions.readable.nodeToWeb(stream);
-    } else {
-        throw new TypeError("Expected a Node streams.Readable.");
+    } else if (Array.isArray(stream)) {
+        return conversions.readable.arrayToWeb(stream);
+    } else if (Buffer.isBuffer(stream) || typeof stream === 'string') {
+        return conversions.readable.arrayToWeb([stream]);
+    }
+        throw new TypeError("Expected a Node streams.Readable, an Array, Buffer or String.");
     }
 };
