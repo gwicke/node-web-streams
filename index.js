@@ -13,7 +13,8 @@ module.exports = require('web-streams-polyfill');
  * @return {stream.Readable}, a Node Readable stream.
  */
 module.exports.toNodeReadable = function(stream) {
-    if (stream instanceof module.exports.ReadableStream) {
+    if (stream instanceof module.exports.ReadableStream
+        || stream && typeof stream.getReader === 'function') {
         return conversions.readable.webToNode(stream);
     } else {
         throw new TypeError("Expected a ReadableStream.");
