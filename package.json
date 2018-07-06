@@ -25,6 +25,6 @@
   },
   "dependencies": {
     "is-stream": "^1.1.0",
-    "web-streams-polyfill": "git://github.com/gwicke/web-streams-polyfill#spec_performance_improvements"
+    "web-streams-polyfill": "^1.3.2"
   }
 }
